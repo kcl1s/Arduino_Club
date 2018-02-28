@@ -1,22 +1,25 @@
-bool buttonState = LOW;  // Variable for reading the pushbutton status
-bool oldButtonState = HIGH;  //  Variable for old button state
+bool buttonState = 0;  // Variable for reading the pushbutton status
+bool oldButtonState = 1;  //  Variable for old button state
 const int buttonPin = 5;          // button pin
 
 void setup() {
-   pinMode(buttonPin, INPUT_PULLUP);      //Easier wiring Pressed = LOW
-   Serial.begin(9600);
+  Serial.begin(9600);
+  Serial.println("Start serial");
+   pinMode(buttonPin, INPUT_PULLUP); 
 }
 
 void loop() {
-  buttonState = digitalRead(buttonPin);                  //Read current button state
-  if ((buttonState = LOW) && (oldButtonState = HIGH)) {   //We have a new button press
-    //press code here
+  buttonState = digitalRead(buttonPin);
+  Serial.print(buttonState);
+  Serial.println(oldButtonState);
+  if ((buttonState == LOW) && (oldButtonState == HIGH)) {   //We have a new button press
     Serial.println("Pressed");
-     
-    oldButtonState = LOW;     //update old state
+    //Put button press code here
+    //
+    oldButtonState = LOW;
   }
-  else if ((buttonState = HIGH) && (oldButtonState = LOW)) {  //We have a button release
-    oldButtonState = HIGH;    //update old state
+  else if ((buttonState == HIGH) && (oldButtonState == LOW)) {  //We have a button release
+    oldButtonState = HIGH;
   }
-  delay(50);    //for button debounce
+  delay(500);    //for button debounce
 }
