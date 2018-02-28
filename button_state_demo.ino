@@ -10,8 +10,6 @@ void setup() {
 
 void loop() {
   buttonState = digitalRead(buttonPin);
-  Serial.print(buttonState);
-  Serial.println(oldButtonState);
   if ((buttonState == LOW) && (oldButtonState == HIGH)) {   //We have a new button press
     Serial.println("Pressed");
     //Put button press code here
