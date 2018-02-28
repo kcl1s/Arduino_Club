@@ -21,5 +21,5 @@ void loop() {
   else if ((buttonState == HIGH) && (oldButtonState == LOW)) {  //We have a button release
     oldButtonState = HIGH;
   }
-  delay(500);    //for button debounce
+  delay(50);    //for button debounce
 }
