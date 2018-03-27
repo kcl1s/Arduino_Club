@@ -86,12 +86,20 @@ void loop() {
     case winGame :
       //win code here
       Serial.println("You Win");
+      for(int i = 0; i <= seqLength; i++){
+        lightSound(sequence[i]);
+      }
       gameState = gameOver;
       break;
 
     case loseGame :
       //lose code here
       Serial.print("You Lose");
+      for (int i = 1000; i > 100; i--){
+        tone(tonePin, i);
+        delay(2);
+      }
+      noTone(tonePin);
       gameState = gameOver;
       break;
 
