@@ -34,13 +34,9 @@ void setup() {
   Serial.begin(9600);
   Serial.println("Start serial");
 
-  //set button pinmodes
+  //set button and LED pinmodes
   for (int i = 0; i < 4; i++) {
     pinMode(buttonPin[i], INPUT_PULLUP);
-  }
-
-  //set LED pinmodes
-  for (int i = 0; i < 4; i++) {
     pinMode(LEDpins[i], OUTPUT);
   }
 
@@ -135,5 +131,3 @@ void lightSound(int spot) {   // which spot on game 0 - 3
   noTone(tonePin);                        //and sound
   delay(delayBetween);        //delay between sequence
 }
-
-
